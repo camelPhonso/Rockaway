@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/Rockaway.WebApp.props" />
+</Project>
