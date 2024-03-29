@@ -28,3 +28,4 @@
 /Users/alphonso/localRepo/dotNet/Rockaway/Rockaway.WebApp/obj/Debug/net8.0/Rockaway.WebApp.pdb
 /Users/alphonso/localRepo/dotNet/Rockaway/Rockaway.WebApp/obj/Debug/net8.0/Rockaway.WebApp.genruntimeconfig.cache
 /Users/alphonso/localRepo/dotNet/Rockaway/Rockaway.WebApp/obj/Debug/net8.0/ref/Rockaway.WebApp.dll
+/Users/alphonso/localRepo/dotNet/Rockaway/Rockaway.WebApp/obj/Debug/net8.0/Rockaway.WebApp.sourcelink.json
