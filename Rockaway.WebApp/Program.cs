@@ -10,6 +10,8 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddSingleton<IStatusReporter>(new StatusReporter());
 
+builder.Services.AddControllersWithViews();
+
 var sqliteConnection = new SqliteConnection("Data Source=:memory:");
 sqliteConnection.Open();
 builder.Services.AddDbContext<RockawayDbContext>(options => options.UseSqlite(sqliteConnection));
@@ -50,5 +52,7 @@ app.MapRazorPages();
 
 // run reporter to view app status
 app.MapGet("/status", (IStatusReporter reporter) => reporter.GetStatus());
+
+app.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
