@@ -1,16 +1,23 @@
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
+using Roackaway.WebApp.Services;
 using Rockaway.WebApp.Data;
-using Rockaway.WebApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 
+builder.Services.AddSingleton<IStatusReporter>(new StatusReporter());
+
+var sqliteConnection = new SqliteConnection("Data Source=:memory:");
+sqliteConnection.Open();
+builder.Services.AddDbContext<RockawayDbContext>(options => options.UseSqlite(sqliteConnection));
+
 builder.Services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
 var app = builder.Build();
 
+// Create Loggers
 app.Logger.LogTrace("This is a TRACE message.");
 app.Logger.LogDebug("This is a DEBUG message.");
 app.Logger.LogInformation("This is an INFORMATION message.");
@@ -26,6 +33,12 @@ if (!app.Environment.IsDevelopment())
 	app.UseHsts();
 }
 
+using (var scope = app.Services.CreateScope()) {
+	using (var db = scope.ServiceProvider.GetService<RockawayDbContext>()!) {
+		db.Database.EnsureCreated();
+	}
+}
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -34,5 +47,8 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+// run reporter to view app status
+app.MapGet("/status", (IStatusReporter reporter) => reporter.GetStatus());
 
 app.Run();

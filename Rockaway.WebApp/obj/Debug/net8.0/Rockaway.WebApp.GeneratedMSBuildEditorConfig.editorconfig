@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/alphonso/localRepo/dotNet/Rockaway/Rockaway.WebApp
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/alphonso/localRepo/dotNet/Rockaway/Rockaway.WebApp/Pages/Artists.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQXJ0aXN0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/alphonso/localRepo/dotNet/Rockaway/Rockaway.WebApp/Pages/ContactUs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ29udGFjdFVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
