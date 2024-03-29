@@ -7,15 +7,17 @@ public class StatusReporter : IStatusReporter
 {
 	private static readonly Assembly assembly = Assembly.GetEntryAssembly()!;
 
-	public ServerStatus GetStatus() =>
-		new()
+	public ServerStatus GetStatus()
+	{
+		return new()
 		{
 			Assembly = assembly.FullName ?? "Assembly.GetEntryAssembly() returned null",
 			Modified = new DateTimeOffset(
 				File.GetLastWriteTimeUtc(assembly.Location),
 				TimeSpan.Zero
-			).ToString("0"),
+			).ToString("O"),
 			HostName = Environment.MachineName,
-			DateTime = DateTimeOffset.UtcNow.ToString("0"),
+			DateTime = DateTimeOffset.UtcNow.ToString("O"),
 		};
-}
+	}
+};

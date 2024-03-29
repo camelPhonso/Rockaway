@@ -1,5 +1,4 @@
 using Roackaway.WebApp.Services;
-using Rockaway.WebApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,5 +32,8 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+// run reporter to view app status
+app.MapGet("/status", (IStatusReporter reporter) => reporter.GetStatus());
 
 app.Run();
