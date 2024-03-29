@@ -18,6 +18,7 @@ public class StatusReporter : IStatusReporter
 			).ToString("O"),
 			HostName = Environment.MachineName,
 			DateTime = DateTimeOffset.UtcNow.ToString("O"),
+			UpTime = Environment.TickCount.ToString(),
 		};
 	}
 };

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Rockaway.WebApp.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b3917d461a4a9207be76674878694f3c0cb3014c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6df9fdaf6368905319873a457e443ea7ea04508c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Rockaway.WebApp.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Rockaway.WebApp.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

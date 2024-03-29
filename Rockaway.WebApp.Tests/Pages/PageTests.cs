@@ -62,6 +62,7 @@ public class PageTests
 			Modified = new DateTimeOffset(2023, 4, 5, 6, 7, 8, TimeSpan.Zero).ToString("O"),
 			HostName = "Test Host",
 			DateTime = new DateTimeOffset(2024, 5, 6, 7, 8, 9, TimeSpan.Zero).ToString("O"),
+			UpTime = "289345",
 		};
 
 	private class TestStatusReporter : IStatusReporter
