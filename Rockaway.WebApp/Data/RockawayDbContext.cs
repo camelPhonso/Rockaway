@@ -16,6 +16,7 @@ public class RockawayDbContext(DbContextOptions<RockawayDbContext> options)
 		base.OnModelCreating(modelBuilder);
 		modelBuilder.Entity<Artist>().HasData(SampleData.Artists.AllArtists);
 		modelBuilder.Entity<Venue>().HasData(SampleData.Venues.AllVenues);
+		modelBuilder.Entity<IdentityUser>().HasData(Sampledata.Users.Admin);
 	}
 
 	public DbSet<Venue> Venues { get; set; } = default!;
