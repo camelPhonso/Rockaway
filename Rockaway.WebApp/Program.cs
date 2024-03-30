@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Roackaway.WebApp.Services;
@@ -11,6 +13,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddSingleton<IStatusReporter>(new StatusReporter());
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<RockawayDbContext>();
 
 var sqliteConnection = new SqliteConnection("Data Source=:memory:");
 sqliteConnection.Open();
@@ -35,8 +39,10 @@ if (!app.Environment.IsDevelopment())
 	app.UseHsts();
 }
 
-using (var scope = app.Services.CreateScope()) {
-	using (var db = scope.ServiceProvider.GetService<RockawayDbContext>()!) {
+using (var scope = app.Services.CreateScope())
+{
+	using (var db = scope.ServiceProvider.GetService<RockawayDbContext>()!)
+	{
 		db.Database.EnsureCreated();
 	}
 }
