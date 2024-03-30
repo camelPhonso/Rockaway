@@ -1,10 +1,13 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Rockaway.WebApp.Data.Entities;
 using Rockaway.WebApp.Data.Sample;
 
 namespace Rockaway.WebApp.Data;
 
-public class RockawayDbContext(DbContextOptions<RockawayDbContext> options) : DbContext(options)
+public class RockawayDbContext(DbContextOptions<RockawayDbContext> options)
+	: IdentityDbContext<IdentityUser>(options)
 {
 	public DbSet<Artist> Artists { get; set; } = default!;
 
@@ -15,5 +18,5 @@ public class RockawayDbContext(DbContextOptions<RockawayDbContext> options) : Db
 		modelBuilder.Entity<Venue>().HasData(SampleData.Venues.AllVenues);
 	}
 
-	public DbSet<Venue> Venues {get; set;} = default!;
+	public DbSet<Venue> Venues { get; set; } = default!;
 }
