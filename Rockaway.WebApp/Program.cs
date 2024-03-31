@@ -94,4 +94,10 @@ app.MapGet("/status", (IStatusReporter reporter) => reporter.GetStatus());
 
 app.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
 
+app.MapAreaControllerRoute(
+	name:"admin",
+	areaName: "Admin",
+	pattern:"Admin/{controller=Home}/{action=Index}/{id?}"
+).RequireAuthorization();
+
 app.Run();
