@@ -100,4 +100,5 @@ app.MapAreaControllerRoute(
 	pattern:"Admin/{controller=Home}/{action=Index}/{id?}"
 ).RequireAuthorization();
 
+
 app.Run();
