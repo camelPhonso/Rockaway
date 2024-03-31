@@ -16,6 +16,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<RockawayDbContext>();
 
+builder.Services.AddRazorPages(options => options.Conventions.AuthorizeAreaFolder("admin","/"));
+
 // Create Loggers
 ILogger<T> CreateAdHocLogger<T>()
 {
